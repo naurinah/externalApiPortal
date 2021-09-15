@@ -180,7 +180,7 @@ export default function APITable({ reload, setReload }) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(25);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [modalShow, setModalShow] = React.useState(false);
   const [modalAcno, setModalAcno] = React.useState("");
   const [apis, setApis] = React.useState(null);
@@ -191,7 +191,7 @@ export default function APITable({ reload, setReload }) {
     const response = await fetch(
       "http://benefitx.blue-ex.com/api/customerportal/api_details.php"
     ).then((res) => res.json());
-    setApis(response);
+    setApis(response.details);
   };
 
   const [originalRows, setOriginalRows] = React.useState([]);
@@ -366,7 +366,7 @@ export default function APITable({ reload, setReload }) {
             </Table>
           </TableContainer>
           <TablePagination
-            rowsPerPageOptions={[25, 50, 100,150]}
+            rowsPerPageOptions={[5,25, 50, 100,150]}
             component="div"
             count={rows.length}
             rowsPerPage={rowsPerPage}
