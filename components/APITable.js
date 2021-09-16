@@ -14,7 +14,6 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import Modals from "./Modals";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import SearchBar from "material-ui-search-bar";
-import { Agent } from 'https'
 
 function createData(
   api_no,
@@ -193,12 +192,12 @@ export default function APITable({ reload, setReload }) {
 
 
   
-  const fetchApiDetails = async () => {
-   const url = 'http://benefitx.blue-ex.com/api/customerportal/api_details.php';
-    const agent = new Agent({ keepAlive: false })
-    const response = await  fetch(url, { agent }
+ const fetchApiDetails = async () => {
+    const response = await fetch(
+      "http://benefitx.blue-ex.com/api/customerportal/api_details.php"
     ).then((res) => res.json());
     setApis(response.details);
+  };
  
     
 //   const url = window.location.href
