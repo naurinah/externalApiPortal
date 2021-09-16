@@ -197,8 +197,7 @@ export default function APITable({ reload, setReload }) {
     
       if (location.protocol !== 'http:') {
           location.replace(`http:${location.href.substring(location.protocol.length)}`);
-      }
-  
+      }  
 
   const [originalRows, setOriginalRows] = React.useState([]);
   const [searched, setSearched] = React.useState("");
