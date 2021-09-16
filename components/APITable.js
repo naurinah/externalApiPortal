@@ -194,9 +194,9 @@ export default function APITable({ reload, setReload }) {
       "http://benefitx.blue-ex.com/api/customerportal/api_details.php"
     ).then((res) => res.json());
     setApis(response.details);
-     if (location.protocol !== 'http:') {
-    location.replace(`http:${location.href.substring(location.protocol.length)}`);
-}  };
+    
+  
+  
 
   const [originalRows, setOriginalRows] = React.useState([]);
   const [searched, setSearched] = React.useState("");
@@ -216,6 +216,12 @@ export default function APITable({ reload, setReload }) {
     requestSearch(searched);
   };
 
+    React.useState(async() => {
+        if (location.protocol !== 'http:') {
+        location.replace(`http:${location.href.substring(location.protocol.length)}`);
+      }      
+    },[]);
+    
   React.useEffect(async () => {
     if (reload) {
       setIsLoading(true);
