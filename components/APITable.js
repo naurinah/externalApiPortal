@@ -224,15 +224,14 @@ export default function APITable({ reload, setReload }) {
   
  
     
-  React.useEffect(async) => {
+  React.useEffect(async)=> {
     if (reload ) {
       setIsLoading(true);
       await fetchApiDetails();
       setIsLoading(false);
       setReload(false);
-      
     }
-  }, [reload]);
+  }, [reload])
         
 
   React.useEffect(() => {
