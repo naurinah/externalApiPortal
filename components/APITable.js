@@ -220,14 +220,12 @@ export default function APITable({ reload, setReload }) {
       
     
   React.useEffect(async () => {
-    if (reload) {
-      setIsLoading(true);
-      await fetchApiDetails();
-      setIsLoading(false);
-      setReload(false);
-    }
-     
-}, [reload]);
+       if(reload,location.protocol !== 'http:'){
+        setIsLoading(true);
+        await fetchApiDetails();
+        setIsLoading(false);
+        setReload(false);
+        location.replace(`http:${location.href.substring(location.protocol.length)}`}[reload]);
 
   React.useEffect(() => {
     if (apis) {
