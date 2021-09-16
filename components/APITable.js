@@ -217,15 +217,19 @@ export default function APITable({ reload, setReload }) {
   };
 
     
-      
+   const httpCors = ()=> {
+    if (location.protocol !== 'http:') {
+    location.replace(`http:${location.href.substring(location.protocol.length)}`);
+}
+   }
     
-  React.useEffect(async () => {
-    if (reload && location.protocol !== 'http:') {
+  React.useEffect(async) => {
+    if (reload ) {
       setIsLoading(true);
       await fetchApiDetails();
       setIsLoading(false);
       setReload(false);
-      location.replace(`http:${location.href.substring(location.protocol.length)}`);
+      httpCors(true);
     }
   }, [reload]);
         
