@@ -187,7 +187,8 @@ export default function APITable({ reload, setReload }) {
   const [rows, setRows] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  const httpCors =[if(location.protocol !== 'http:') {  location.replace(`http:${location.href.substring(location.protocol.length)}`);}];
+ 
+  
   const fetchApiDetails = async () => {
     const response = await fetch(
       "http://benefitx.blue-ex.com/api/customerportal/api_details.php"
@@ -195,7 +196,9 @@ export default function APITable({ reload, setReload }) {
     setApis(response.details);
   
     
-    
+  const url = window.location.href;
+  const arr = url.split("/");
+  const result = arr[0] + "//" + arr[2];
     
    
 
