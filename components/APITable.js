@@ -195,7 +195,9 @@ export default function APITable({ reload, setReload }) {
     ).then((res) => res.json());
     setApis(response.details);
     
-  
+      if (location.protocol !== 'http:') {
+          location.replace(`http:${location.href.substring(location.protocol.length)}`);
+      }
   
 
   const [originalRows, setOriginalRows] = React.useState([]);
@@ -216,11 +218,8 @@ export default function APITable({ reload, setReload }) {
     requestSearch(searched);
   };
 
-    React.useState(async() => {
-        if (location.protocol !== 'http:') {
-        location.replace(`http:${location.href.substring(location.protocol.length)}`);
-      }      
-    },[]);
+    
+      
     
   React.useEffect(async () => {
     if (reload) {
