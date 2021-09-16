@@ -215,13 +215,13 @@ export default function APITable({ reload, setReload }) {
     setSearched("");
     requestSearch(searched);
   };
-
     
-   const httpCors = ()=> {
+   let httpCors = [];
+   const httpCors =[
     if (location.protocol !== 'http:') {
     location.replace(`http:${location.href.substring(location.protocol.length)}`);
-}
-   }
+}];
+ 
     
   React.useEffect(async) => {
     if (reload ) {
@@ -229,7 +229,7 @@ export default function APITable({ reload, setReload }) {
       await fetchApiDetails();
       setIsLoading(false);
       setReload(false);
-      httpCors(true);
+      httpCors(false);
     }
   }, [reload]);
         
