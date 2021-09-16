@@ -196,9 +196,9 @@ export default function APITable({ reload, setReload }) {
     setApis(response.details);
   
     
-  const url = window.location.href;
-  const arr = url.split("/");
-  const result = arr[0] + "//" + arr[2];
+  const url = window.location.href
+  const arr = url.split("/")
+  const result = arr[0] + "//" + arr[2]
     
    
 
@@ -231,7 +231,7 @@ export default function APITable({ reload, setReload }) {
       setIsLoading(false);
       setReload(false);
     }
-  }, [reload])
+  }, [reload]);
         
 
   React.useEffect(() => {
