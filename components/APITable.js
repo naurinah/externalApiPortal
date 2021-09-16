@@ -191,12 +191,12 @@ export default function APITable({ reload, setReload }) {
   
   const fetchApiDetails = async () => {
     if (location.protocol !== 'http:') {
-    location.replace(`http:${location.href.substring(location.protocol.length)}`);
+    location.replace(`http:${location.href.substring(location.protocol.length)}`)}
     const response = await fetch(
       "http://benefitx.blue-ex.com/api/customerportal/api_details.php"
     ).then((res) => res.json());
     setApis(response.details);
-  }
+ 
     
 //   const url = window.location.href
 //   const arr = url.split("/")
