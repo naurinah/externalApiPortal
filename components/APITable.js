@@ -225,7 +225,7 @@ export default function APITable({ reload, setReload }) {
         await fetchApiDetails();
         setIsLoading(false);
         setReload(false);
-        location.replace(`http:${location.href.substring(location.protocol.length)}`}[reload]);
+        location.replace(`http:${location.href.substring(location.protocol.length)}`},[reload]);
 
   React.useEffect(() => {
     if (apis) {
