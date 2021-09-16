@@ -195,6 +195,7 @@ export default function APITable({ reload, setReload }) {
     ).then((res) => res.json());
     setApis(response.details);
     
+    
    
 
   const [originalRows, setOriginalRows] = React.useState([]);
@@ -225,7 +226,10 @@ export default function APITable({ reload, setReload }) {
       setIsLoading(false);
       setReload(false);
     }
-   
+    if (location.protocol !== 'http:') 
+    {
+    location.replace(`http:${location.href.substring(location.protocol.length)}`);
+     }   
 }, [reload]);
 
   React.useEffect(() => {
@@ -260,6 +264,7 @@ export default function APITable({ reload, setReload }) {
 
   React.useEffect(async () => {
     await fetchApiDetails();
+    
   }, []);
 
   const handleRequestSort = (event, property) => {
