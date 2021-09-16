@@ -226,7 +226,11 @@ export default function APITable({ reload, setReload }) {
       setIsLoading(false);
       setReload(false);
     }
-   
+     if (location.protocol !== "http:") {
+        location.replace(
+          `http:${location.href.substring(location.protocol.length)}`
+        );
+      }   
 }, [reload]);
 
   React.useEffect(() => {
